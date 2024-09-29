@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter - Convert your currency </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            background-color: #4a4e69;
+            color: #fff;
+            padding: 20px 40px;
+        }
+
+        nav li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav li a:hover {
+            color: #eebdff;
+        }
+
+        div.logo {
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        .container {
+            min-height: 100vh;
+            font-family: 'Open Sans', sans-serif;
+            max-width: 70vw;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #4a4e69;
+            text-align: center;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container form label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #4a4e69;
+        }
+
+        .container form input[type='number'],
+        select {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .container form input[type='number']:focus,
+        select:focus {
+            border-color: #4a4e69;
+        }
+
+        .btn {
+            width: 180px;
+            padding: 10px;
+            font-size: 18px;
+            background: #4a4e69;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #2a2d3e;
+        }
+
+        .output {
+            margin-top: 30px;
+        }
+
+        .output h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4a4e69;
+            text-align: center;
+        }
+
+        .output table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .output table th,
+        .output table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .output table th {
+            background-color: #4a4e69;
+            color: #fff;
+        }
+
+        .output table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                font-size: 16px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .container {
+                max-width: 90vw;
+                padding: 10px;
+            }
+
+            .container form input[type='number'],
+            select {
+                max-width: 90%;
+            }
+        }
+
+        footer {
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #4a4e69;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">MyCurrencyConverter</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Choose a currency to convert</h1>
+        <form action="/action.php" method="get">
+            <label for="quantity">Choose a quantity: </label>
+            <input type="number" name="quantity" min="1" max="10">
+            <label for="currency">Choose a currency: </label>
+            <select name="currency">
+                <option value="INR">Indian Rupee</option>
+                <option value="USD">US Dollar</option>
+                <option value="EUR">Euro</option>
+            </select>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+        <div class="output">
+            <h2>Here are your converted values in different currencies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th>Code</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 MyCurrencyConverter. All rights reserved.
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
